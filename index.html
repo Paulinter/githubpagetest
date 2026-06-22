@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paulinter | Mis Redes</title>
+  <meta name="description" content="Hola, soy Paulinter 👋 Aquí están todos mis links." />
+
+  <!-- Favicon: YouTube usa el favicon real, no el og:image -->
+  <link rel="icon" type="image/png" sizes="512x512" href="https://pagina-web-paulinter.onrender.com/favicon-512.png" />
+  <link rel="icon" type="image/x-icon" href="https://pagina-web-paulinter.onrender.com/favicon.ico" />
+  <link rel="shortcut icon" href="https://pagina-web-paulinter.onrender.com/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pagina-web-paulinter.onrender.com/favicon-512.png" />
+  <meta name="msapplication-TileImage" content="https://pagina-web-paulinter.onrender.com/favicon-512.png" />
+
+  <!-- Etiquetas Open Graph (OG) para YouTube, WhatsApp, etc. -->
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="https://pagina-web-paulinter.onrender.com/" />
+  <meta property="og:title"        content="Paulinter | Mis Redes" />
+  <meta property="og:description"  content="Hola, soy Paulinter 👋 Aquí están todos mis links." />
+  <meta property="og:image"        content="https://pagina-web-paulinter.onrender.com/paulinter.jpg" />
+  <meta property="og:image:width"  content="500" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:locale"       content="es_PE" />
+  <meta property="og:site_name"    content="Paulinter" />
+
+  <!-- Twitter / X Card Tags -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:url"         content="https://pagina-web-paulinter.onrender.com/" />
+  <meta name="twitter:title"       content="Paulinter | Mis Redes" />
+  <meta name="twitter:description" content="Hola, soy Paulinter 👋 Aquí están todos mis links." />
+  <meta name="twitter:image"       content="https://pagina-web-paulinter.onrender.com/paulinter.jpg" />
+
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #07080c;
+      --card:      #0d1017;
+      --card2:     #111520;
+      --border:    #1a1f2e;
+      --border2:   #232840;
+      --cyan:      #00e5ff;
+      --cyan-dim:  #00b8cc;
+      --cyan-glow: rgba(0,229,255,.18);
+      --violet:    #7b61ff;
+      --white:     #eef2ff;
+      --muted:     #5a6a8a;
+      --muted2:    #8898bb;
+      --btn-bg:    #10141f;
+      --btn-hover: #161c2e;
+      --radius:    16px;
+      --font:      'Space Grotesk', system-ui, sans-serif;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,31,46,.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,31,46,.6) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 20%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glow blobs */
+    .glow-top {
+      position: fixed;
+      top: -160px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(0,229,255,.10) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-bot {
+      position: fixed;
+      bottom: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(123,97,255,.07) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Layout */
+    main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 16px 80px;
+      min-height: 100vh;
+    }
+
+    /* Card */
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 28px;
+      padding: 44px 32px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow:
+        0 0 0 1px rgba(0,229,255,.05),
+        0 0 60px rgba(0,229,255,.04),
+        0 32px 80px rgba(0,0,0,.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Shimmer line top of card */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), var(--cyan), transparent);
+      opacity: .5;
+    }
+
+    /* Avatar */
+    .avatar-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin-bottom: 22px;
+    }
+    .avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(var(--cyan) 0%, var(--violet) 40%, #ff6bcb 70%, var(--cyan) 100%);
+      animation: spin 5s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .avatar-inner {
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--card);
+      z-index: 1;
+    }
+    .avatar-wrap img {
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 2;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+    }
+
+    /* Badge */
+    .badge {
+      position: absolute;
+      bottom: 0; right: 0;
+      z-index: 3;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      box-shadow: 0 0 10px rgba(0,229,255,.5);
+      border: 2px solid var(--card);
+    }
+
+    /* Name / handle */
+    .name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .handle {
+      font-size: .825rem;
+      color: var(--cyan);
+      margin-top: 5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .bio {
+      font-size: .875rem;
+      color: var(--muted2);
+      text-align: center;
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    /* Stats row */
+    .stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 28px;
+      margin-top: 4px;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .stat-val {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+    .stat-lbl {
+      font-size: .7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .stat-dot {
+      width: 1px;
+      height: 28px;
+      background: var(--border2);
+      align-self: center;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border2), transparent);
+      margin-bottom: 26px;
+    }
+
+    /* Section label */
+    .section-lbl {
+      width: 100%;
+      font-size: .68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    /* Links */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--btn-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--white);
+      text-decoration: none;
+      font-family: var(--font);
+      font-size: .9375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .18s, border-color .2s, transform .14s, box-shadow .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .link-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.03) 100%);
+      pointer-events: none;
+    }
+    .link-btn:hover {
+      background: var(--btn-hover);
+      border-color: rgba(0,229,255,.35);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(0,229,255,.08);
+    }
+    .link-btn:active { transform: translateY(0); }
+
+    .link-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-icon svg { width: 21px; height: 21px; }
+
+    .link-icon--yt  { background: rgba(255,0,0,.12); border: 1px solid rgba(255,0,0,.15); }
+    .link-icon--wa  { background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.15); }
+    .link-icon--ig  { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border: 1px solid rgba(255,255,255,.12); }
+    .link-icon--web { background: rgba(0,229,255,.08); border: 1px solid rgba(0,229,255,.12); }
+
+    .link-label {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .link-label span:first-child {
+      font-size: .75rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: .02em;
+    }
+    .link-label span:last-child {
+      font-size: .9375rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .link-arrow {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 1.15rem;
+      transition: color .18s, transform .18s;
+    }
+    .link-btn:hover .link-arrow {
+      color: var(--cyan);
+      transform: translateX(2px);
+    }
+
+    /* Pulse dot */
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-left: auto;
+      margin-right: 6px;
+      box-shadow: 0 0 0 0 rgba(34,197,94,.4);
+      animation: pulse 2s ease infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+      70%  { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 28px;
+      font-size: .72rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .avatar-ring { animation: none; }
+      .pulse { animation: none; }
+      .link-btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="glow-top"></div>
+<div class="glow-bot"></div>
+
+<main>
+  <div class="card">
+
+    <!-- Avatar local usando la imagen que está en la carpeta -->
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar-inner"></div>
+      <img src="paulinter.jpg" alt="Paulinter" />
+      <div class="badge">✨</div>
+    </div>
+
+    <!-- Info Principal -->
+    <p class="name">Paulinter</p>
+    <p class="handle">@paulinter0909</p>
+    <p class="bio">Creando contenido para ti 🎬<br/>Lima, Perú 🇵🇪</p>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-val">YouTube</span>
+        <span class="stat-lbl">Canal</span>
+      </div>
+      <div class="stat-dot"></div>
+      <div class="stat">
+        <span class="stat-val">Perú</span>
+        <span class="stat-lbl">Lima</span>
+      </div>
+      <div class="stat-dot"></div>
+      <div class="stat">
+        <span class="stat-val">2024</span>
+        <span class="stat-lbl">Activo</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <p class="section-lbl">Mis redes sociales</p>
+
+    <!-- Links -->
+    <nav class="links" aria-label="Mis redes">
+
+      <!-- YouTube -->
+      <a class="link-btn" href="https://youtube.com/@paulinter0909" target="_blank" rel="noopener">
+        <span class="link-icon link-icon--yt" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.54 6.42A2.78 2.78 0 0 0 20.59 4.5C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.5C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.92A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58Z" fill="#FF0000"/>
+            <path d="M9.75 15.02V8.98L15.5 12l-5.75 3.02Z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="link-label">
+          <span>YouTube</span>
+          <span>@paulinter0909</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a class="link-btn" href="https://wa.me/51944662808" target="_blank" rel="noopener">
+        <span class="link-icon link-icon--wa" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.96-1.39A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Zm-1.4 5.5c-.2-.5-.4-.5-.6-.5h-.52c-.18 0-.46.07-.7.34C8.54 7.6 7.5 8.6 7.5 10.64c0 2.04 1.48 4.02 1.68 4.3.2.28 2.9 4.6 7.1 6.26 3.52 1.38 4.23.74 4.23.74a5.64 5.64 0 0 0 1.76-3.3c.22-.74.13-.85-.11-1.01l-3.3-1.56c-.24-.12-.57-.08-.79.2l-1 1.28c-.19.24-.47.3-.71.2-1.36-.57-4.3-2.5-5.4-5.36-.08-.28 0-.52.19-.7l.94-1.03c.2-.22.27-.54.15-.8L10.6 7.5Z" fill="#25D366"/>
+          </svg>
+        </span>
+        <span class="link-label">
+          <span>WhatsApp</span>
+          <span>+51 944 662 808</span>
+        </span>
+        <div class="pulse" title="En línea"></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Instagram -->
+      <a class="link-btn" href="https://www.instagram.com/pauloxd0909/" target="_blank" rel="noopener">
+        <span class="link-icon link-icon--ig" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="16" height="16" rx="5" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.3" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="link-label">
+          <span>Instagram</span>
+          <span>@pauloxd0909</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+
+    </nav>
+  </div>
+
+  <footer>
+    Hecho con 💙 en Lima, Perú &nbsp;·&nbsp; <a href="https://paulinter.com">paulinter.com</a>
+  </footer>
+</main>
+
+</body>
+</html>
